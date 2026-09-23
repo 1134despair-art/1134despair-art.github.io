@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>吴昊的产品手记</title>
+    <link>https://ruanyi.top/</link>
+    <description>企业级产品、AI 智能体、软硬件协同与交付方法。</description>
+    <language>zh-CN</language>
+    <item>
+      <title>智能体产品，不止是把对话框放进系统</title>
+      <link>https://ruanyi.top/#note-agent</link>
+      <guid>https://ruanyi.top/#note-agent</guid>
+      <description>从字段回填、失败兜底到人工复核，聊聊智能体真正落地时必须补齐的产品机制。</description>
+    </item>
+    <item>
+      <title>软硬件联动项目，需求边界如何画清楚</title>
+      <link>https://ruanyi.top/#note-device</link>
+      <guid>https://ruanyi.top/#note-device</guid>
+      <description>以激活、授权、指令和回传为线索，建立设备侧与软件侧都能执行的共同语言。</description>
+    </item>
+    <item>
+      <title>一份能推进交付的 PRD，应该回答什么</title>
+      <link>https://ruanyi.top/#note-prd</link>
+      <guid>https://ruanyi.top/#note-prd</guid>
+      <description>页面只是结果。字段、状态、权限与异常，才是复杂业务真正的骨架。</description>
+    </item>
+  </channel>
+</rss>

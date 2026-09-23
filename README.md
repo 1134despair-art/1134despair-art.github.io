@@ -1,6 +1,18 @@
-# ruanyi.top
+# 吴昊个人博客
 
-GitHub Pages user site for `ruanyi.top`.
+一个无需构建即可部署的响应式个人博客与产品作品集，包含文章阅读、真实项目预览、深色主题与 RSS。
 
-- Root: redirects to `/codex/`
-- Projects: served from `/<repository-name>/`
+## 本地预览
+
+直接打开 `index.html`，或在目录中启动任意静态文件服务。
+
+## 部署
+
+将本目录内容发布到 `ruanyi.top` 和 `www.ruanyi.top` 对应站点根目录即可。建议将两个域名都指向同一份文件，并选择其中一个作为规范域名做 301 跳转。
+
+## 内容维护
+
+- 项目卡片：编辑 `index.html` 中的 `.project-card`
+- 文章内容：编辑 `script.js` 中的 `articleContent`
+- 样式与主题：编辑 `styles-v2.css` 顶部的颜色变量
+- RSS：新增文章时同步维护 `rss.xml`
