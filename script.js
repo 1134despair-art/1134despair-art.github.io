@@ -1,47 +1,61 @@
 const articleContent = {
   agent: {
-    meta: "AI 产品 · 6 分钟阅读",
-    title: "智能体产品，不止是把对话框放进系统",
+    meta: "项目复盘 · AI 产品 · 8 分钟阅读",
+    title: "我怎么把会议智能体从“能对话”做成可交付流程",
     body: `
-      <p>智能体真正进入业务系统后，用户面对的不是一个“会聊天的模型”，而是一条需要稳定完成任务的业务链路。产品经理的工作，也会从设计对话转向设计确定性。</p>
-      <blockquote>模型负责理解与生成，产品机制负责让结果可用、可控、可追溯。</blockquote>
-      <h3>先定义结果，而不是先定义对话</h3>
-      <p>以会议创建为例，目标不是让用户与智能体聊得自然，而是把通知、附件和历史资料转成一组可提交的结构化字段。因此在方案阶段，我会先明确字段来源、必填条件、置信度和提交边界，再决定交互形态。</p>
-      <h3>每个自动化动作都要有兜底</h3>
-      <p>抽取失败怎么办？多个候选值如何选择？内容变化后是否重新生成？这些问题决定了产品能否进入真实生产环境。合理的做法通常包括失败提示、人工复核、原文定位、版本记录和操作日志。</p>
-      <h3>把权限和审计放在第一版</h3>
-      <p>企业场景中的“能做”与“允许做”是两件事。智能体读取了哪些资料、代表谁执行、结果由谁确认，都应在产品规则中明确，而不是上线前最后补一层权限判断。</p>
-      <p><strong>我的判断：</strong>智能体产品的价值不在于替用户多说几句话，而在于减少一次业务任务中的信息搬运、重复确认和机械操作。</p>`
+      <p>国家管网无纸化会议项目启动时，需求看起来像“做一个会议智能体”。如果顺着这句话往下画，很容易得到一个会回答问题的聊天框，却解决不了会议筹备、材料流转和纪要归档中的真实耗时。</p>
+      <blockquote>这个项目真正要交付的不是一次对话，而是一条从信息进入系统到会议资料完成归档的业务链路。</blockquote>
+      <h3>先把一句需求拆成 8 个业务场景</h3>
+      <p>我先跟着会议全流程梳理角色和动作，把会议创建、通知识别、附件上传、材料摘要、纪要生成、人工复核、结果归档和日志审计拆成 8 个关键场景。每个场景都明确输入、输出、负责人和完成条件，避免团队把“AI 能做”误解成“产品已经可用”。</p>
+      <h3>把非结构化材料变成可确认的字段</h3>
+      <p>会议通知、附件和历史材料的写法并不统一。我在 PRD 中定义字段来源、必填条件、候选值、置信度和回填规则；系统可以识别和建议，但正式创建前必须让用户看到原文依据并确认。AI 负责减少录入，产品机制负责保证结果可信。</p>
+      <h3>失败兜底与人工复核必须进入第一版</h3>
+      <p>抽取失败、多个时间冲突、附件更新、权限不足都不是边角问题。我把失败提示、重新识别、人工修改、版本记录、权限校验和操作日志放进第一版范围，让每一次自动化都有可恢复路径，也让结果可以被追溯。</p>
+      <h3>多端联调时，用同一份状态定义说话</h3>
+      <p>项目同时涉及 Agent 平台、WESIS、weact、Java 后端和实时通道。我的工作不止是交付原型，而是推动各端对字段含义、状态变化、接口时机和异常返回形成一致理解，再据此组织联调与验收。</p>
+      <h3>上线结果与复盘</h3>
+      <p>项目最终完成会议通知与附件自动识别、结构化回填、材料 AI 摘要和纪要生成等关键流程，会议创建效率提升约 60%，并形成可复制的多端协同方案。</p>
+      <p><strong>我的判断：</strong>做 AI 产品时，应先定义业务结果、人工确认点和失败路径，再选择模型与交互。一个智能体真正进入生产环境的标志，不是它能回答多少问题，而是它能否稳定完成一项工作。</p>`
   },
   device: {
-    meta: "设备产品 · 7 分钟阅读",
-    title: "软硬件联动项目，需求边界如何画清楚",
+    meta: "真实案例 · IoT · 9 分钟阅读",
+    title: "一个软硬件结合 App，怎样从设备连接走到售后闭环",
     body: `
-      <p>软硬件项目最常见的问题，并不是团队不努力，而是同一个“功能正常”在 App、服务端、固件和设备四方眼中有四种定义。</p>
-      <blockquote>把一次操作写成完整状态迁移，比画十张静态页面更有用。</blockquote>
-      <h3>用链路描述需求</h3>
-      <p>以设备激活为例，至少要说明设备如何被发现、身份如何校验、授权从哪里获取、结果如何写回、失败后是否允许重试。每一段都要有发起方、响应方、超时规则和可观察状态。</p>
-      <h3>区分设备状态与页面状态</h3>
-      <p>页面显示“已连接”，不一定代表设备可执行指令。蓝牙连接、账号绑定、设备授权、固件兼容和业务可用应该是不同状态，混在一个字段里会让排障变得困难。</p>
-      <h3>提前定义异常与恢复</h3>
-      <p>现场网络不稳定、设备断电、指令重复和升级中断都不是边角情况。PRD 应明确幂等规则、断点策略、重试次数、错误码映射和售后处理入口。</p>
-      <p><strong>我的判断：</strong>边界清晰不是把责任推给某一端，而是让每一端都知道自己要提供什么信号，下一端又依据什么继续。</p>`
+      <p>六马达熔接机设备管理项目最初可以被理解成“给设备配一个 App”。真正进入调研后，我发现用户面对的是一条更长的链路：设备被销售、激活、授权、连接、使用、升级，发生故障后还要进入售后。</p>
+      <blockquote>软硬件产品不能只画手机页面。设备、App、后台和服务团队共同完成的，才是一项完整功能。</blockquote>
+      <h3>先画清用户、设备与服务的关系</h3>
+      <p>我从销售、激活、使用到售后逐段梳理，建立用户、设备、激活码、固件版本、熔接记录和售后订单之间的数据关系。这样做的目的，是先确定数据归属和业务责任，再决定每个页面展示什么。</p>
+      <h3>连接成功不等于业务可用</h3>
+      <p>在需求中，我把蓝牙连接、账号绑定、设备激活、授权校验、固件兼容和业务可用拆成不同状态。页面上的一个“已连接”无法覆盖这些差异；状态混在一起，用户无法判断问题，客服和研发也很难排查。</p>
+      <h3>一次指令必须写成完整链路</h3>
+      <p>以参数下发为例，我会明确谁发起、设备何时响应、数据如何回传、超时如何提示、重复操作是否允许，以及失败后从哪里恢复。这些规则被同步到 App、小程序、后台与设备侧，成为联调时共同使用的语言。</p>
+      <h3>把售后放进产品主流程</h3>
+      <p>设备异常不是产品之外的事情。故障信息、设备身份、使用记录和固件版本都应该跟随报修进入服务流程，用户能够看到处理进度，后台能够定位责任和历史。这样才从“能控制设备”走到“能服务设备”。</p>
+      <h3>100+ 页面背后是状态与规则</h3>
+      <p>项目最终完成 App、小程序和后台 100+ 页面逻辑，打通设备激活、授权校验、参数设置、固件发布和售后订单等核心流程，累计服务设备终端 2000+ 台。</p>
+      <p><strong>我的判断：</strong>软硬件项目的边界不是一张职责表，而是每一端需要提供什么信号、下一端依据什么继续，以及异常时谁来恢复。页面只是这些规则的可视化结果。</p>`
   },
   prd: {
-    meta: "B 端产品 · 5 分钟阅读",
-    title: "一份能推进交付的 PRD，应该回答什么",
+    meta: "职业成长 · B 端产品 · 7 分钟阅读",
+    title: "从售前到产品经理，我学会先把交付问题问清楚",
     body: `
-      <p>B 端系统的复杂度很少来自页面数量，更多来自角色、规则和例外。只描述“页面上有什么”，通常不足以支撑研发、测试与验收。</p>
-      <blockquote>好的 PRD 不是功能说明书，而是团队对业务规则达成一致的载体。</blockquote>
-      <h3>谁在什么条件下做什么</h3>
-      <p>先把角色、前置条件、触发动作和预期结果写清楚。一个功能如果无法放进这句话，往往说明场景还没有被真正理解。</p>
-      <h3>字段、状态、权限、异常</h3>
-      <p>这是我检查复杂需求的四个基本维度：数据从哪里来、状态如何流转、每个角色能看能做什么、链路失败后如何恢复。原型负责呈现，规则表和流程图负责消除歧义。</p>
-      <h3>验收口径要与需求一起出现</h3>
-      <p>如果上线前才讨论“怎样算完成”，范围一定会漂移。关键场景、边界值和异常路径都应该在评审时转成可验证的验收条件。</p>
-      <p><strong>我的判断：</strong>文档的价值不在于篇幅，而在于它能否让不同岗位基于同一组事实做决定。</p>`
+      <p>我不是从标准的产品助理路径进入产品岗位。前三年多，我在企业采购与政企数字化项目中做售前：听客户描述问题、评估能不能做、跟研发确认边界，再回到现场解释方案。</p>
+      <blockquote>售前经历给我的最大影响，是写需求时会提前想到：客户为什么要它、团队怎样实现、最后凭什么验收。</blockquote>
+      <h3>年处理 200+ 需求后，我不再急着画页面</h3>
+      <p>在企业采购平台中，我每年承接和跟进 200+ 项需求。客户常用“增加一个按钮”“限制一下额度”描述目标，但真正需要确认的是业务角色、规则生效范围、历史数据、跨端一致性和失败后的处理方式。问题没问清楚，原型越快，返工越早。</p>
+      <h3>把客户语言翻译成四类产品规则</h3>
+      <p>后来我形成了固定的检查方式：字段从哪里来，状态怎样流转，角色具有什么权限，异常发生后如何恢复。原型负责让方案可见，流程图、规则表和 PRD 负责让团队对同一件事形成一致理解。</p>
+      <h3>验收口径要和需求同时出现</h3>
+      <p>电子签章、品类限额和设备管理项目都让我意识到，如果上线前才讨论“怎样算完成”，范围一定会漂移。我会在评审阶段把主流程、边界值、异常路径和跨端表现转成可验证条件，让测试与客户验收使用同一套口径。</p>
+      <h3>产品经理不是需求的中转站</h3>
+      <p>从售前转到产品经理后，我仍保留面向现场的工作方式，但责任更完整：除了理解和说明，还要做取舍、管理版本、推动研发测试协同，并对最终结果负责。我的价值不是把客户原话写进文档，而是把问题整理成团队能共同执行的决定。</p>
+      <h3>我现在如何判断一份 PRD 是否够用</h3>
+      <p>我会问四个问题：研发能否据此实现，测试能否据此验证，客户能否据此确认，未来出现问题时能否追溯当时的决定。只要其中一个答案是否定的，文档就还没有完成。</p>
+      <p><strong>我的判断：</strong>产品文档的价值不在篇幅，而在于它能否让不同岗位基于同一组事实做决定，并把一次项目经验沉淀为下一次可以复用的方法。</p>`
   }
 };
+
+const articleOrder = ["agent", "device", "prd"];
 
 const workSection = document.querySelector("#work");
 const writingSection = document.querySelector("#writing");
@@ -55,6 +69,7 @@ const header = document.querySelector(".site-header");
 const progress = document.querySelector(".reading-progress span");
 const dialog = document.querySelector("#article-dialog");
 const dialogContent = document.querySelector("#dialog-content");
+const dialogProgress = document.querySelector(".dialog-reading-progress span");
 const toast = document.createElement("div");
 toast.className = "toast";
 toast.setAttribute("role", "status");
@@ -132,10 +147,28 @@ function openArticle(key, updateUrl = true) {
   const article = articleContent[key];
   if (!article) return;
   activeArticle = key;
-  dialogContent.innerHTML = `<p class="article-meta">${article.meta}</p><h2>${article.title}</h2>${article.body}<div class="article-actions"><button class="button button-secondary copy-link" type="button"><i data-lucide="link-2" aria-hidden="true"></i>复制文章链接</button></div>`;
+  const articleIndex = articleOrder.indexOf(key);
+  const previousKey = articleOrder[articleIndex - 1];
+  const nextKey = articleOrder[articleIndex + 1];
+  dialogContent.innerHTML = `<p class="article-meta">${article.meta}</p><h2>${article.title}</h2>${article.body}<div class="article-actions"><button class="button button-secondary copy-link" type="button"><i data-lucide="link-2" aria-hidden="true"></i>复制文章链接</button><div class="article-pagination">${previousKey ? `<button type="button" data-open-article="${previousKey}"><span>上一篇</span><strong>${articleContent[previousKey].title}</strong></button>` : ""}${nextKey ? `<button type="button" data-open-article="${nextKey}"><span>下一篇</span><strong>${articleContent[nextKey].title}</strong></button>` : ""}</div></div>`;
+  const headings = [...dialogContent.querySelectorAll("h3")];
+  if (headings.length) {
+    const toc = document.createElement("nav");
+    toc.className = "article-toc";
+    toc.setAttribute("aria-label", "文章目录");
+    toc.innerHTML = `<strong>本文目录</strong><ol>${headings.map((heading, index) => {
+      heading.id = `${key}-section-${index + 1}`;
+      return `<li><a href="#${heading.id}">${heading.textContent}</a></li>`;
+    }).join("")}</ol>`;
+    dialogContent.querySelector("h2").after(toc);
+  }
   dialogContent.querySelector(".copy-link").addEventListener("click", copyArticleLink);
+  dialogContent.querySelectorAll("[data-open-article]").forEach((button) => {
+    button.addEventListener("click", () => openArticle(button.dataset.openArticle));
+  });
   if (!dialog.open) dialog.showModal();
   dialog.scrollTop = 0;
+  dialogProgress.style.transform = "scaleX(0)";
   if (updateUrl) history.pushState({ article: key }, "", `#note-${key}`);
   renderIcons();
 }
@@ -147,6 +180,12 @@ function closeArticle(updateUrl = true) {
   if (updateUrl && window.location.hash.startsWith("#note-")) history.replaceState(null, "", "#writing");
   articleTrigger?.focus();
 }
+
+dialog.addEventListener("scroll", () => {
+  const scrollable = dialog.scrollHeight - dialog.clientHeight;
+  const ratio = scrollable > 0 ? dialog.scrollTop / scrollable : 0;
+  dialogProgress.style.transform = `scaleX(${ratio})`;
+}, { passive: true });
 
 document.querySelectorAll(".article-open").forEach((button) => {
   button.addEventListener("click", () => {
