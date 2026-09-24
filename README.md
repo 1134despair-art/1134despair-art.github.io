@@ -1,6 +1,6 @@
 # 吴昊个人博客
 
-一个无需构建即可部署的响应式个人产品作品集与实践博客，聚焦 B 端产品、AI 智能体、IoT 软硬件协同和端到端交付。包含真实项目复盘、在线作品、深色主题、文章目录与 RSS。
+一个无需构建即可部署的响应式产品实践型个人网站，聚焦 B 端产品、AI、IoT 软硬件协同和端到端交付。包含精选案例、全部作品、实践文章、深色主题、文章目录与 RSS。
 
 ## 本地预览
 
@@ -12,8 +12,11 @@
 
 ## 内容维护
 
-- 项目卡片：编辑 `index.html` 中的 `.project-card`
-- 内容栏目：编辑 `index.html` 中的 `.pillar-list`
+- 首页精选案例：编辑 `index.html` 中的 `.selected-case`
+- 全部作品：编辑 `works.html` 中的 `.project-card`
+- 案例详情：编辑 `cases/` 目录下对应的 HTML 文件
+- 问题类型与工作方式：编辑 `index.html` 中的 `.problem-grid` 和 `.workflow-list`
 - 文章内容：编辑 `script.js` 中的 `articleContent`
 - 样式与主题：编辑 `styles-v2.css` 顶部的颜色变量
+- SEO：新增页面时同步维护页面元数据和 `sitemap.xml`
 - RSS：新增文章时同步维护 `rss.xml`

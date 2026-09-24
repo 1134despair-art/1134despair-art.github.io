@@ -1,7 +1,9 @@
 const articleContent = {
   agent: {
-    meta: "项目复盘 · AI 产品 · 8 分钟阅读",
+    meta: "项目复盘 · AI 产品 · 2026.09.23 · 8 分钟阅读",
     title: "我怎么把会议智能体从“能对话”做成可交付流程",
+    summary: "以真实会议项目为背景，复盘如何把场景、结构化回填、人工复核和多端联调组织成可交付流程。",
+    related: [{ href: "./cases/shark.html", title: "鲨鱼妹妹设备服务体系", note: "查看多端业务与服务流程如何被组织成产品闭环" }],
     body: `
       <p>国家管网无纸化会议项目启动时，需求看起来像“做一个会议智能体”。如果顺着这句话往下画，很容易得到一个会回答问题的聊天框，却解决不了会议筹备、材料流转和纪要归档中的真实耗时。</p>
       <blockquote>这个项目真正要交付的不是一次对话，而是一条从信息进入系统到会议资料完成归档的业务链路。</blockquote>
@@ -14,12 +16,18 @@ const articleContent = {
       <h3>多端联调时，用同一份状态定义说话</h3>
       <p>项目同时涉及 Agent 平台、WESIS、weact、Java 后端和实时通道。我的工作不止是交付原型，而是推动各端对字段含义、状态变化、接口时机和异常返回形成一致理解，再据此组织联调与验收。</p>
       <h3>上线结果与复盘</h3>
-      <p>项目最终完成会议通知与附件自动识别、结构化回填、材料 AI 摘要和纪要生成等关键流程，会议创建效率提升约 60%，并形成可复制的多端协同方案。</p>
+      <p>项目最终完成会议通知与附件自动识别、结构化回填、材料 AI 摘要和纪要生成等关键流程，并形成可复用的多端协同方法。</p>
       <p><strong>我的判断：</strong>做 AI 产品时，应先定义业务结果、人工确认点和失败路径，再选择模型与交互。一个智能体真正进入生产环境的标志，不是它能回答多少问题，而是它能否稳定完成一项工作。</p>`
   },
   device: {
-    meta: "真实案例 · IoT · 9 分钟阅读",
+    meta: "IoT 实践 · 2026.09.23 · 9 分钟阅读",
     title: "一个软硬件结合 App，怎样从设备连接走到售后闭环",
+    summary: "以软硬件项目为背景，说明为什么产品不能只画 App 页面，以及设备、软件、后台与服务之间的边界如何定义。",
+    related: [
+      { href: "./cases/shark.html", title: "鲨鱼妹妹设备服务体系", note: "IoT + App + 后台 + 售后" },
+      { href: "./cases/fiber.html", title: "光纤互联 App", note: "专业设备 + App + 作业场景" },
+      { href: "./cases/cycling.html", title: "蓝图骑行", note: "智能硬件 + App + 用户产品" }
+    ],
     body: `
       <p>六马达熔接机设备管理项目最初可以被理解成“给设备配一个 App”。真正进入调研后，我发现用户面对的是一条更长的链路：设备被销售、激活、授权、连接、使用、升级，发生故障后还要进入售后。</p>
       <blockquote>软硬件产品不能只画手机页面。设备、App、后台和服务团队共同完成的，才是一项完整功能。</blockquote>
@@ -36,8 +44,13 @@ const articleContent = {
       <p><strong>我的判断：</strong>软硬件项目的边界不是一张职责表，而是每一端需要提供什么信号、下一端依据什么继续，以及异常时谁来恢复。页面只是这些规则的可视化结果。</p>`
   },
   prd: {
-    meta: "职业成长 · B 端产品 · 7 分钟阅读",
+    meta: "B 端产品 · 2026.09.23 · 7 分钟阅读",
     title: "从售前到产品经理，我学会先把交付问题问清楚",
+    summary: "从年处理 200+ 需求的售前经历出发，复盘如何把客户语言转成字段、状态、权限、异常和验收口径。",
+    related: [
+      { href: "./cases/shark.html", title: "鲨鱼妹妹设备服务体系", note: "查看复杂业务如何被拆成跨端方案" },
+      { href: "./works.html", title: "全部作品", note: "浏览 7 个已公开的产品项目" }
+    ],
     body: `
       <p>我不是从标准的产品助理路径进入产品岗位。前三年多，我在企业采购与政企数字化项目中做售前：听客户描述问题、评估能不能做、跟研发确认边界，再回到现场解释方案。</p>
       <blockquote>售前经历给我的最大影响，是写需求时会提前想到：客户为什么要它、团队怎样实现、最后凭什么验收。</blockquote>
@@ -56,10 +69,6 @@ const articleContent = {
 };
 
 const articleOrder = ["agent", "device", "prd"];
-
-const workSection = document.querySelector("#work");
-const writingSection = document.querySelector("#writing");
-if (workSection && writingSection) workSection.before(writingSection);
 
 const root = document.documentElement;
 const menuButton = document.querySelector(".menu-toggle");
@@ -87,6 +96,7 @@ function renderIcons() {
 }
 
 function updateThemeIcon() {
+  if (!themeButton) return;
   const icon = themeButton.querySelector("i, svg");
   if (icon) {
     const replacement = document.createElement("i");
@@ -97,20 +107,22 @@ function updateThemeIcon() {
   }
 }
 
-menuButton.addEventListener("click", () => {
-  const open = nav.classList.toggle("open");
-  document.body.classList.toggle("menu-open", open);
-  menuButton.setAttribute("aria-expanded", String(open));
-  menuButton.setAttribute("aria-label", open ? "关闭导航" : "打开导航");
-});
+if (menuButton && nav) {
+  menuButton.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    document.body.classList.toggle("menu-open", open);
+    menuButton.setAttribute("aria-expanded", String(open));
+    menuButton.setAttribute("aria-label", open ? "关闭导航" : "打开导航");
+  });
 
-nav.addEventListener("click", () => {
-  nav.classList.remove("open");
-  document.body.classList.remove("menu-open");
-  menuButton.setAttribute("aria-expanded", "false");
-});
+  nav.addEventListener("click", () => {
+    nav.classList.remove("open");
+    document.body.classList.remove("menu-open");
+    menuButton.setAttribute("aria-expanded", "false");
+  });
+}
 
-themeButton.addEventListener("click", () => {
+themeButton?.addEventListener("click", () => {
   root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
   localStorage.setItem("theme", root.dataset.theme);
   updateThemeIcon();
@@ -145,13 +157,14 @@ async function copyArticleLink() {
 
 function openArticle(key, updateUrl = true) {
   const article = articleContent[key];
-  if (!article) return;
+  if (!article || !dialog || !dialogContent || !dialogProgress) return;
   activeArticle = key;
   const articleIndex = articleOrder.indexOf(key);
   const previousKey = articleOrder[articleIndex - 1];
   const nextKey = articleOrder[articleIndex + 1];
-  dialogContent.innerHTML = `<p class="article-meta">${article.meta}</p><h2>${article.title}</h2>${article.body}<div class="article-actions"><button class="button button-secondary copy-link" type="button"><i data-lucide="link-2" aria-hidden="true"></i>复制文章链接</button><div class="article-pagination">${previousKey ? `<button type="button" data-open-article="${previousKey}"><span>上一篇</span><strong>${articleContent[previousKey].title}</strong></button>` : ""}${nextKey ? `<button type="button" data-open-article="${nextKey}"><span>下一篇</span><strong>${articleContent[nextKey].title}</strong></button>` : ""}</div></div>`;
-  const headings = [...dialogContent.querySelectorAll("h3")];
+  const relatedProjects = article.related.map((project) => `<a href="${project.href}"><strong>${project.title}</strong><span>${project.note}</span><i data-lucide="arrow-right" aria-hidden="true"></i></a>`).join("");
+  dialogContent.innerHTML = `<p class="article-meta">${article.meta}</p><h2>${article.title}</h2><p class="article-summary">${article.summary}</p>${article.body}<aside class="article-related"><p class="section-kicker">Related Projects</p><h3>相关项目</h3><div>${relatedProjects}</div></aside><div class="article-actions"><button class="button button-secondary copy-link" type="button"><i data-lucide="link-2" aria-hidden="true"></i>复制文章链接</button><div class="article-pagination">${previousKey ? `<button type="button" data-open-article="${previousKey}"><span>上一篇</span><strong>${articleContent[previousKey].title}</strong></button>` : ""}${nextKey ? `<button type="button" data-open-article="${nextKey}"><span>下一篇</span><strong>${articleContent[nextKey].title}</strong></button>` : ""}</div></div>`;
+  const headings = [...dialogContent.querySelectorAll(":scope > h3")];
   if (headings.length) {
     const toc = document.createElement("nav");
     toc.className = "article-toc";
@@ -160,7 +173,7 @@ function openArticle(key, updateUrl = true) {
       heading.id = `${key}-section-${index + 1}`;
       return `<li><a href="#${heading.id}">${heading.textContent}</a></li>`;
     }).join("")}</ol>`;
-    dialogContent.querySelector("h2").after(toc);
+    dialogContent.querySelector(".article-summary").after(toc);
   }
   dialogContent.querySelector(".copy-link").addEventListener("click", copyArticleLink);
   dialogContent.querySelectorAll("[data-open-article]").forEach((button) => {
@@ -174,17 +187,17 @@ function openArticle(key, updateUrl = true) {
 }
 
 function closeArticle(updateUrl = true) {
-  if (!dialog.open) return;
+  if (!dialog?.open) return;
   dialog.close();
   activeArticle = null;
   if (updateUrl && window.location.hash.startsWith("#note-")) history.replaceState(null, "", "#writing");
   articleTrigger?.focus();
 }
 
-dialog.addEventListener("scroll", () => {
+dialog?.addEventListener("scroll", () => {
   const scrollable = dialog.scrollHeight - dialog.clientHeight;
   const ratio = scrollable > 0 ? dialog.scrollTop / scrollable : 0;
-  dialogProgress.style.transform = `scaleX(${ratio})`;
+  if (dialogProgress) dialogProgress.style.transform = `scaleX(${ratio})`;
 }, { passive: true });
 
 document.querySelectorAll(".article-open").forEach((button) => {
@@ -194,12 +207,12 @@ document.querySelectorAll(".article-open").forEach((button) => {
   });
 });
 
-document.querySelector(".dialog-close").addEventListener("click", () => closeArticle());
-dialog.addEventListener("cancel", (event) => {
+document.querySelector(".dialog-close")?.addEventListener("click", () => closeArticle());
+dialog?.addEventListener("cancel", (event) => {
   event.preventDefault();
   closeArticle();
 });
-dialog.addEventListener("click", (event) => {
+dialog?.addEventListener("click", (event) => {
   const bounds = dialog.getBoundingClientRect();
   const outside = event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom;
   if (outside) closeArticle();
@@ -207,22 +220,26 @@ dialog.addEventListener("click", (event) => {
 
 window.addEventListener("popstate", () => {
   const match = window.location.hash.match(/^#note-(agent|device|prd)$/);
+  if (!dialog) return;
   if (match) openArticle(match[1], false);
   else closeArticle(false);
 });
 
-const observedSections = ["top", "writing", "work", "about"]
+const observedSections = ["top", "work", "writing", "about"]
   .map((id) => document.querySelector(`#${id}`))
   .filter(Boolean);
 const navLinks = [...document.querySelectorAll(".site-nav a")];
-const sectionObserver = new IntersectionObserver((entries) => {
-  const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-  if (!visible) return;
-  navLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === `#${visible.target.id}`));
-}, { rootMargin: "-25% 0px -60%", threshold: [0, .2, .5] });
-observedSections.forEach((section) => sectionObserver.observe(section));
+const localNavLinks = navLinks.filter((link) => link.getAttribute("href")?.startsWith("#"));
+if (localNavLinks.length) {
+  const sectionObserver = new IntersectionObserver((entries) => {
+    const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (!visible) return;
+    localNavLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === `#${visible.target.id}`));
+  }, { rootMargin: "-25% 0px -60%", threshold: [0, .2, .5] });
+  observedSections.forEach((section) => sectionObserver.observe(section));
+}
 
-const revealItems = document.querySelectorAll(".article-item, .project-card, .capability-grid > div, .experience-row");
+const revealItems = document.querySelectorAll(".article-item, .project-card, .selected-case, .problem-grid > article, .workflow-list > li, .experience-row");
 const revealObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
@@ -238,18 +255,19 @@ revealItems.forEach((item) => {
 function onScroll() {
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
   const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
-  progress.style.transform = `scaleX(${ratio})`;
-  header.classList.toggle("scrolled", window.scrollY > 12);
-  if (window.scrollY < 120) {
-    navLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === "#top"));
+  if (progress) progress.style.transform = `scaleX(${ratio})`;
+  header?.classList.toggle("scrolled", window.scrollY > 12);
+  if (window.scrollY < 120 && localNavLinks.length) {
+    localNavLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === "#top"));
   }
 }
 
 window.addEventListener("scroll", onScroll, { passive: true });
-document.querySelector("#year").textContent = new Date().getFullYear();
+const year = document.querySelector("#year");
+if (year) year.textContent = new Date().getFullYear();
 window.addEventListener("load", renderIcons);
 updateThemeIcon();
 onScroll();
 
 const initialArticle = window.location.hash.match(/^#note-(agent|device|prd)$/);
-if (initialArticle) openArticle(initialArticle[1], false);
+if (initialArticle && dialog) openArticle(initialArticle[1], false);

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="鲨鱼妹妹设备服务体系案例：吴昊如何梳理 App、设备运营后台与售后服务之间的业务关系和状态闭环。" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#f7f9fc" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="鲨鱼妹妹设备服务体系案例｜吴昊" />
+    <meta property="og:description" content="从设备状态分散到 App、后台与售后协同，展示核心问题、职责、方案与产品决策。" />
+    <meta property="og:url" content="https://ruanyi.top/cases/shark.html" />
+    <meta property="og:image" content="https://ruanyi.top/assets/projects/shark-app.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>鲨鱼妹妹设备服务体系案例｜吴昊</title>
+    <link rel="canonical" href="https://ruanyi.top/cases/shark.html" />
+    <link rel="icon" href="../assets/profile-hero.webp" type="image/webp" />
+    <link rel="stylesheet" href="../styles-v2.css" />
+    <script src="../assets/vendor/lucide.min.js" defer></script>
+    <script src="../script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    <header class="site-header" id="top"><div class="shell nav-wrap"><a class="brand" href="../index.html" aria-label="返回首页"><span class="brand-mark">WH</span><span class="brand-copy"><strong>吴昊</strong><small>产品案例</small></span></a><button class="icon-button menu-toggle" type="button" aria-label="打开导航" aria-expanded="false" aria-controls="site-nav"><i data-lucide="menu"></i></button><nav class="site-nav" id="site-nav"><a href="../index.html">首页</a><a class="active" href="../works.html">全部作品</a><a href="../index.html#writing">文章</a><a href="../index.html#about">关于</a></nav><button class="icon-button theme-toggle" type="button" aria-label="切换深色模式"><i data-lucide="moon"></i></button></div></header>
+    <main id="main" class="case-page">
+      <section class="case-hero shell"><p class="section-kicker">Case Study / 01</p><div class="case-hero-grid"><div><h1>鲨鱼妹妹<br />设备服务体系</h1><p>面向智能设备运营与售后场景，重新梳理用户、设备、运营后台和服务流程之间的关系。</p></div><dl class="case-overview"><div><dt>项目类型</dt><dd>IoT / App / B 端后台</dd></div><div><dt>产品形态</dt><dd>移动 App + Web 管理端 + 智能设备</dd></div><div><dt>我的角色</dt><dd>产品经理</dd></div><div><dt>负责内容</dt><dd>需求、流程、架构、原型、PRD、研发测试协作</dd></div><div><dt>项目状态</dt><dd>已上线 / 持续迭代</dd></div></dl></div></section>
+      <figure class="case-cover shell"><img src="../assets/projects/shark-app.png" alt="鲨鱼妹妹 App 设备与服务界面" /><figcaption>用户端围绕设备状态、任务与服务组织信息；管理端负责设备、用户和流程协同。</figcaption></figure>
+      <article class="case-content shell">
+        <section><p class="case-number">01 项目概览</p><h2>不是单独做一个 App，而是建立设备服务闭环</h2><p>产品同时涉及用户端、设备端、运营后台与售后团队。我的工作是让不同角色基于同一套设备身份、状态与服务进度协作，避免界面看似完整、实际链路断开。</p></section>
+        <section><p class="case-number">02 项目背景</p><h2>设备进入真实使用后，问题会跨越多个系统</h2><p>设备信息、用户关系、运行状态和售后处理原本容易分散在不同入口。用户只知道“设备不能用”，运营和售后却需要确认设备身份、当前状态、历史记录和处理责任。</p></section>
+        <section><p class="case-number">03 核心问题</p><h2>真正的问题是一条无法连续追踪的服务链</h2><ol class="problem-chain"><li>设备信息分散，运营人员难以快速定位对象</li><li>连接、绑定、授权和业务可用状态容易混为一谈</li><li>故障信息与设备、用户和历史记录关联不足</li><li>App 提交问题后，用户难以持续看到服务进度</li></ol></section>
+        <section><p class="case-number">04 我的职责</p><h2>明确我在项目中的具体贡献</h2><ul class="responsibility-list"><li>访谈和业务流程梳理</li><li>用户、设备、运营与售后关系建模</li><li>信息架构、核心流程与产品原型</li><li>字段、状态、权限和异常规则</li><li>PRD、需求评审与版本范围管理</li><li>研发、测试、设备侧协作与验收</li></ul></section>
+        <section><p class="case-number">05 产品方案</p><h2>以设备为主线，连接用户侧与服务侧</h2><div class="solution-grid"><div><strong>用户端</strong><p>查看设备状态、海图与任务，发起故障报修并跟踪服务进度。</p></div><div><strong>运营端</strong><p>统一管理设备、用户、经销商、异常和服务记录。</p></div><div><strong>设备侧</strong><p>提供连接、身份、状态和数据回传信号，支撑业务判断。</p></div></div></section>
+        <section><p class="case-number">06 核心流程</p><h2>把一次设备服务写成完整状态迁移</h2><ol class="flow-list"><li><span>01</span><strong>识别设备</strong><p>确认设备身份与用户关系。</p></li><li><span>02</span><strong>判断状态</strong><p>区分连接、绑定、授权和业务可用。</p></li><li><span>03</span><strong>发起服务</strong><p>携带设备与故障上下文进入报修。</p></li><li><span>04</span><strong>闭环处理</strong><p>后台推进工单，用户持续看到结果。</p></li></ol></section>
+        <section><p class="case-number">07 关键页面</p><h2>页面围绕任务优先级组织，而不是罗列功能</h2><div class="key-page-list"><div><strong>设备首页</strong><p>优先呈现当前状态、关键任务和高频操作。</p></div><div><strong>设备详情</strong><p>集中展示设备身份、运行信息和可执行动作。</p></div><div><strong>故障报修</strong><p>自动带入设备上下文，减少重复填写和定位成本。</p></div><div><strong>服务进度</strong><p>用状态节点回答“现在处理到哪里、下一步是什么”。</p></div></div></section>
+        <section><p class="case-number">08 产品决策</p><h2>为什么设备首页先展示状态</h2><p>用户打开设备产品时，第一件事通常不是浏览功能，而是确认设备能否使用。因此首页优先展示状态与异常入口；只有当设备处于可用状态时，任务与控制能力才成为主操作。这个顺序也让客服排查拥有共同语境。</p></section>
+        <section><p class="case-number">09 最终落地</p><h2>让 App、后台与设备使用同一套业务语言</h2><p>方案形成了可直接体验的用户端和设备运营管理端，关键状态、服务入口与后台处理关系能够连续对应。页面并不是最终目的，跨端信息可以被理解和追踪才是落地结果。</p><div class="case-links"><a class="button button-primary" href="http://shark.ruanyi.top/" target="_blank" rel="noreferrer">体验 App <i data-lucide="arrow-up-right"></i></a><a class="button button-secondary" href="https://ruanyi.top/codex/" target="_blank" rel="noreferrer">查看管理后台 <i data-lucide="arrow-up-right"></i></a></div></section>
+        <section><p class="case-number">10 项目复盘</p><h2>软硬件产品的边界要写进每一次状态变化</h2><p>“App 已连接”不代表设备已经可执行业务。下一轮方案中，我仍会优先定义设备能提供什么信号、服务端怎样判断、用户看到什么状态，以及异常由谁恢复，再进入页面设计。</p></section>
+        <aside class="related-content"><p class="section-kicker">Related Reading</p><h2>相关文章</h2><a href="../index.html#note-device">一个软硬件结合 App，怎样从设备连接走到售后闭环 <i data-lucide="arrow-right"></i></a></aside>
+        <nav class="case-pagination" aria-label="案例导航"><a href="../works.html"><span>返回</span><strong>全部作品</strong></a><a href="./fiber.html"><span>下一案例</span><strong>光纤互联 App</strong></a></nav>
+      </article>
+    </main>
+    <footer class="site-footer"><div class="shell"><p>© <span id="year"></span> 吴昊.</p><div><a href="../index.html">首页</a><a href="#top">回到顶部 ↑</a></div></div></footer><div class="reading-progress"><span></span></div>
+  </body>
+</html>

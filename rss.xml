@@ -10,18 +10,24 @@
       <link>https://ruanyi.top/#note-agent</link>
       <guid>https://ruanyi.top/#note-agent</guid>
       <description>以国家管网无纸化会议项目为例，拆解 8 个业务场景、结构化回填、失败兜底和多端联调。</description>
+      <category>AI 产品</category>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
       <title>一个软硬件结合 App，怎样从设备连接走到售后闭环</title>
       <link>https://ruanyi.top/#note-device</link>
       <guid>https://ruanyi.top/#note-device</guid>
       <description>复盘六马达熔接机项目，说明如何定义设备、App、后台与服务团队之间的产品边界。</description>
+      <category>IoT 实践</category>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
       <title>从售前到产品经理，我学会先把交付问题问清楚</title>
       <link>https://ruanyi.top/#note-prd</link>
       <guid>https://ruanyi.top/#note-prd</guid>
       <description>年处理 200+ 需求后，我如何把客户语言转成字段、状态、权限、异常和验收口径。</description>
+      <category>B 端产品</category>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
