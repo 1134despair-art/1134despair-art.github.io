@@ -368,3 +368,10 @@ onScroll();
 
 const initialArticle = window.location.hash.match(/^#note-(agent|device|prd)$/);
 if (initialArticle && dialog) openArticle(initialArticle[1], false);
+
+const resumeDownloadLink = document.querySelector("[data-resume-download]");
+if (resumeDownloadLink && /MicroMessenger/i.test(navigator.userAgent)) {
+  resumeDownloadLink.removeAttribute("download");
+  resumeDownloadLink.href = "./resume.html";
+  resumeDownloadLink.title = "在微信内预览简历";
+}
