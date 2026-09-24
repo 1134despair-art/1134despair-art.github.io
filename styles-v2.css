@@ -86,6 +86,10 @@ main { display: flex; flex-direction: column; }
 .hero-summary { max-width: 390px; margin: 0; color: var(--muted); font-size: 15px; line-height: 2; }
 .hero-detail { max-width: 390px; margin: 12px 0 0; color: var(--ink-soft); font-size: 13px; line-height: 1.85; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.resume-actions { display: grid; grid-template-columns: repeat(2, minmax(82px, 1fr)); }
+.resume-actions .button { min-width: 0; border-radius: 0; }
+.resume-actions .button:first-child { border-radius: var(--radius-sm) 0 0 var(--radius-sm); }
+.resume-actions .button:last-child { margin-left: -1px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
 .button { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 9px 19px; border: 1px solid var(--brand); border-radius: 10px; font-size: 13px; font-weight: 750; transition: transform 180ms var(--ease), box-shadow 180ms ease, background 180ms ease; }
 .button:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
 .button svg { width: 16px; height: 16px; }
@@ -473,6 +477,7 @@ main { display: flex; flex-direction: column; }
   .hero-summary { font-size: 14px; line-height: 1.85; }
   .hero-detail { font-size: 13px; }
   .hero-actions { display: grid; grid-template-columns: 1fr 1fr; margin-top: 24px; }
+  .resume-actions { min-width: 0; }
   .button { min-width: 0; padding-inline: 10px; font-size: 12px; }
   .hero-profile { order: 3; margin-top: 42px; }
   .portrait-stage { width: min(100%, 350px); min-height: 310px; }
