@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="吴昊个人开发的兼职服务平台案例：独立完成交互 Demo，并持续开发用户端、运营后台与后端接口，围绕任务发布、报名、交付验收和争议处理梳理规则。" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#f7f9fc" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="兼职服务平台：个人独立开发实践｜吴昊" />
+    <meta property="og:description" content="Demo 与正式项目开发均由我个人承担。用户端、运营后台和后端持续联调中，展示真实 Demo 页面与开发边界。" />
+    <meta property="og:url" content="https://ruanyi.top/cases/jianzhi.html" />
+    <meta property="og:image" content="https://ruanyi.top/assets/evidence/jianzhi-task-admin.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>兼职服务平台：个人独立开发实践｜吴昊</title>
+    <link rel="canonical" href="https://ruanyi.top/cases/jianzhi.html" />
+    <link rel="icon" href="../assets/profile-hero.webp" type="image/webp" />
+    <link rel="stylesheet" href="../styles-v2.css?v=20261027-1" />
+    <script src="../assets/vendor/lucide.min.js" defer></script>
+    <script src="../script.js?v=20260929-1" defer></script>
+  </head>
+  <body class="case-jianzhi">
+    <a class="skip-link" href="#main">跳到正文</a>
+    <header class="site-header" id="top"><div class="shell nav-wrap"><a class="brand" href="../index.html" aria-label="返回首页"><span class="brand-mark">WH</span><span class="brand-copy"><strong>吴昊</strong><small>产品案例</small></span></a><button class="icon-button menu-toggle" type="button" aria-label="打开导航" aria-expanded="false" aria-controls="site-nav"><i data-lucide="menu" aria-hidden="true"></i></button><nav class="site-nav" id="site-nav" aria-label="主导航"><a href="../index.html">首页</a><a class="active" href="../works.html">全部作品</a><a href="../index.html#writing">文章</a><a href="../index.html#about">关于</a></nav><button class="icon-button theme-toggle" type="button" aria-label="切换深色模式" title="切换主题"><i data-lucide="moon" aria-hidden="true"></i></button></div></header>
+    <main id="main" class="case-page">
+      <section class="case-hero shell"><p class="section-kicker">Independent Project / 04</p><div class="case-hero-grid"><div><h1>兼职服务平台</h1><p>一个人承担 Demo 和项目开发，处理发布者、接单者与平台运营之间的任务、交付和争议规则。</p></div><dl class="case-overview"><div><dt>项目类型</dt><dd>兼职服务 / 双边任务平台</dd></div><div><dt>产品形态</dt><dd>用户端小程序 + Web 运营后台 + 后端服务</dd></div><div><dt>我的职责</dt><dd>产品梳理、交互 Demo、前后台与后端开发、测试联调</dd></div><div><dt>开发方式</dt><dd>Demo 与正式项目开发均由我个人承担</dd></div><div><dt>当前阶段</dt><dd>本地开发与接口联调，尚未公开上线</dd></div><div><dt>案例更新</dt><dd>2026.10.27</dd></div></dl></div></section>
+      <figure class="case-cover shell"><img src="../assets/evidence/jianzhi-task-admin.png" alt="兼职服务平台运营后台 Demo 的任务管理页面" width="1440" height="960" /><figcaption>本地运营后台 Demo 实际截图。任务、人数、金额与用户名称均为演示数据。</figcaption></figure>
+      <article class="case-content shell">
+        <section><p class="case-number">01 要解决的事</p><h2>接到任务之后，双方仍需要明确的约定</h2><p>发布者要说清工作内容、时间、地点、人数和报酬；接单者要判断自己的能力与档期是否合适。选人之后，还有交付凭证、验收、补证、取消和争议需要处理。我把这些后续操作放进同一份任务规则中，避免页面能报名，却说不清任务如何结束。</p></section>
+        <section><p class="case-number">02 我具体承担的工作</p><h2>产品规则需要由我自己实现和验证</h2><ul class="responsibility-list"><li>梳理发布者、接单者和运营人员的操作边界，定义任务状态与人员订单关系。</li><li>开发用户端交互 Demo，覆盖任务浏览、发布、报名、档期、交付、消息与个人档案。</li><li>开发运营后台 Demo，展示任务查询、审核、争议、资金记录及规则配置。</li><li>继续开发正式用户端、管理前端和后端接口，将已确认交互接入真实业务数据。</li><li>核对 Demo 与正式版本的功能差异，跟进接口适配、异常处理及回归验证。</li></ul><p>用户端采用 UniApp，管理端采用 Vue 3，后端采用 Java、若依与 MySQL。Demo 保留独立的演示数据，正式开发版本单独接入接口和数据库。</p></section>
+        <section><p class="case-number">03 开发时重点处理的规则</p><h2>任务状态、人员进度和资金结果分别确认</h2><div class="decision-list"><article><strong>报名是否等于被选中？</strong><p>报名数量与选中人数分开记录。发布者选人之后，再进入对应人员的执行与交付，避免把报名成功误解为已经接单。</p></article><article><strong>交付是否等于验收完成？</strong><p>凭证提交后仍有验收、补证和争议处理。后台按人员订单查看记录，支持多人任务中不同人的进度差异。</p></article><article><strong>页面显示完成，是否代表已经到账？</strong><p>业务验收与渠道资金结果分开处理。正式版本的报酬结算、提现及奖励发放尚需继续开发和验证，不能以 Demo 中的成功状态代替真实到账。</p></article></div></section>
+        <section><p class="case-number">04 真实界面证据</p><h2>用户判断任务，运营查看处理依据</h2><p class="evidence-note">以下截图来自本地运行的交互 Demo，展示已实现的页面与规则表达。账号、金额、任务和 AI 识别结果均为模拟样例，不代表真实交易、用户规模或正式版本全部完成。</p><div class="evidence-grid"><figure class="evidence-item"><img src="../assets/evidence/jianzhi-task-feed.png" alt="兼职用户端 Demo 任务流：时间、地点、报酬、匹配与报名条件" width="780" height="1688" loading="lazy" /><figcaption><strong>任务浏览与匹配</strong><span>解决的问题</span><p>用户在报名前判断任务是否适合自己。</p><span>我的设计重点</span><p>把时间、地点、报酬和匹配条件放在同一张任务卡中。</p></figcaption></figure><figure class="evidence-item"><img src="../assets/evidence/jianzhi-task-detail.png" alt="兼职用户端 Demo 任务详情与交付要求" width="780" height="1688" loading="lazy" /><figcaption><strong>任务详情与交付要求</strong><span>解决的问题</span><p>报名之前了解工作内容及完成凭证。</p><span>我的设计重点</span><p>让任务约定与报名入口保持在同一个操作上下文。</p></figcaption></figure><figure class="evidence-item evidence-item--wide"><img src="../assets/evidence/jianzhi-task-admin.png" alt="兼职运营后台 Demo 任务列表、状态筛选与关联记录" width="1440" height="960" loading="lazy" /><figcaption><strong>运营后台任务管理</strong><span>解决的问题</span><p>运营人员需要查询任务进度及相关记录。</p><span>我的设计重点</span><p>分别展示任务状态、报名与选中人数，并关联凭证、流水和人员订单。</p></figcaption></figure></div></section>
+        <section><p class="case-number">05 当前进展</p><h2>已有可运行的 Demo，正式版本持续联调</h2><div class="solution-grid"><div><strong>交互 Demo</strong><p>用户端和后台均可在本地运行，使用模拟数据验证任务流程与操作规则。</p></div><div><strong>正式开发</strong><p>已开展用户端、管理端和后端开发，用户、任务、人工审核、争议及相关查询已有接口实现，继续补齐并核对实际功能。</p></div><div><strong>待完成验证</strong><p>公网部署、微信真实支付与回调、报酬结算及提现发放等仍有待办；尚未完成全系统上线验收。</p></div></div><p>目前不提供公开体验地址。本页先展示项目思路、个人工作与真实 Demo 截图，公开版本准备好后再补充访问入口。</p></section>
+        <section><p class="case-number">06 这次实践对我的要求</p><h2>页面上的每个状态，都要有实现依据</h2><p>这个项目由我继续承担实际开发，因此产品方案中的权限、异常和完成条件都需要落到代码与接口上。我重点检查的是：用户现在能做什么、后台依据什么处理，以及操作失败之后如何继续。Demo 与正式版的差异也要逐项保留，不能只凭页面相似就认定功能完成。</p></section>
+        <nav class="case-pagination" aria-label="案例导航"><a href="./cycling.html"><span>上一案例</span><strong>蓝图骑行</strong></a><a href="../works.html"><span>返回作品集</span><strong>查看全部作品</strong></a></nav>
+      </article>
+    </main>
+    <footer class="site-footer"><div class="shell"><p>© <span id="year"></span> 吴昊.</p><div><a href="../works.html">全部作品</a><a href="#top">回到顶部 ↑</a></div></div></footer><div class="reading-progress" aria-hidden="true"><span></span></div>
+  </body>
+</html>
